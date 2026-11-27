@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>투썸 성적서 만들기</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <h1>투썸 출고 성적서 만들기</h1>
+  <p class="lead">피킹리스트 PDF와 성적서 폴더를 고르면, 품목별 성적서를 찾아 박스 수량을 고치고 PDF 하나로 합칩니다.
+    <b>파일은 이 브라우저 안에서만 처리되고 어디에도 올라가지 않습니다.</b></p>
+
+  <section class="step">
+    <span class="no">1</span>
+    <div class="body">
+      <h2>피킹리스트 PDF</h2>
+      <label class="btn">파일 선택<input id="picking" type="file" accept="application/pdf,.pdf" hidden></label>
+      <span id="pickingName" class="chosen">선택 안 함</span>
+    </div>
+  </section>
+
+  <section class="step">
+    <span class="no">2</span>
+    <div class="body">
+      <h2>투썸 성적서 폴더</h2>
+      <label class="btn">폴더 선택<input id="folder" type="file" webkitdirectory directory multiple hidden></label>
+      <span id="folderName" class="chosen">선택 안 함</span>
+      <p class="hint">폴더 안에 하위 폴더가 있으면 작업을 멈춥니다. 브라우저가 "업로드" 확인을 물어도 실제로 밖으로 보내지 않습니다.</p>
+    </div>
+  </section>
+
+  <section class="run">
+    <button id="run" class="primary" disabled>성적서 PDF 만들기</button>
+    <span id="busy" class="busy"></span>
+    <span id="download" class="download"></span>
+  </section>
+
+  <section id="results"></section>
+</main>
+
+<dialog id="dlg">
+  <h2 id="dlgTitle">작업 결과</h2>
+  <div id="dlgBody"></div>
+  <form method="dialog"><button id="dlgClose" class="primary">확인</button></form>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
